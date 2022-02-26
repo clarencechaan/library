@@ -75,7 +75,6 @@ function clickReadButton(book) {
 
 // remove book from library and redraw library onto display
 function removeBook(index) {
-    console.log(index);
     myLibrary.splice(index, 1);
     clearDisplay();
     displayLibrary();
