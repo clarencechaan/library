@@ -99,6 +99,9 @@ function submitBook() {
     author.value = null;
     pages.value = null;
     read.checked = false;
+
+    // prevent page from reloading
+    return false;
 }
 
 function clearDisplay () {
