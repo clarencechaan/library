@@ -23,6 +23,11 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    transition: .3s;
+}
+
+.book-card:hover {
+    transform: scale(1.03);
 }
 
 .book-card > div:first-child {
