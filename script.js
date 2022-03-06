@@ -127,6 +127,49 @@ window.onmousedown = (event) => {
   }
 };
 
+// form validation
+const titleInput = document.querySelector('#title');
+titleInput.addEventListener('input', () => {
+  if (titleInput.validity.valueMissing) {
+    titleInput.setCustomValidity('Please enter a title.');
+    titleInput.reportValidity();
+  } else if (titleInput.validity.tooLong) {
+    titleInput.setCustomValidity('Title must be 84 characters or less');
+    titleInput.reportValidity();
+  } else {
+    titleInput.setCustomValidity('');
+  }
+});
+
+const authorInput = document.querySelector('#author');
+authorInput.addEventListener('input', () => {
+  if (authorInput.validity.valueMissing) {
+    authorInput.setCustomValidity('Please enter an author name.');
+    authorInput.reportValidity();
+  } else if (titleInput.validity.tooLong) {
+    authorInput.setCustomValidity('Author name must be 32 characters or less');
+    authorInput.reportValidity();
+  } else {
+    authorInput.setCustomValidity('');
+  }
+});
+
+const pagesInput = document.querySelector('#pages');
+pagesInput.addEventListener('input', () => {
+  if (pagesInput.validity.valueMissing) {
+    pagesInput.setCustomValidity('Please enter the number of pages.');
+    pagesInput.reportValidity();
+  } else if (pagesInput.validity.rangeUnderflow) {
+    pagesInput.setCustomValidity('Number of pages must be at least 1.');
+    pagesInput.reportValidity();
+  } else if (pagesInput.validity.rangeOverflow) {
+    pagesInput.setCustomValidity('Number of pages must be 10,000 or less.');
+    pagesInput.reportValidity();
+  } else {
+    pagesInput.setCustomValidity('');
+  }
+});
+
 const form = document.querySelector('form');
 form.onsubmit = submitBook;
 
